@@ -1,7 +1,8 @@
-# Cherangi
+# @distributed/cherangi
 
-[![npm version](https://badge.fury.io/js/cherangi.svg)](https://badge.fury.io/js/cherangi)
-[![Known Vulnerabilities](https://snyk.io/test/github/shariati/cherangi/badge.svg)](https://snyk.io/test/github/shariati/cherangi)
+> Fork from [shariati/cherangi](https://github.com/shariati/cherangi), using dependabot to automatically update the `color-name-list` package.
+
+[![npm version](https://badge.fury.io/js/cherangi.svg)](https://badge.fury.io/js/@distributed/cherangi)
 
 A small javascript library that helps you find the name of a color (Over 18K 🎨 color names).
 
@@ -15,15 +16,15 @@ Cherangi (Che Rangi?) is a Farsi (Persian) sentence which means "What color?"
 
 ```bash
 
-$ npm install cherangi --save
+$ npm install @distributed/cherangi --save
 
-+ cherangi@VERSION
++ @distributed/cherangicherangi@VERSION
 ```
 
 ## Usage
 
 ```javascript
-const cherangi = require("cherangi");
+const cherangi = require("@distributed/cherangi");
 
 cherangi("#cfcfcf");
 ```
@@ -96,9 +97,9 @@ For now all invalid inputs are handled as black color. This will be changed with
 
 ```bash
 
-$ npm install --global cherangi
+$ npm install --global @distributed/cherangi
 
-+ cherangi@VERSION
++  @distributed/cherangi@VERSION
 ```
 
 ```bash
@@ -115,6 +116,7 @@ $ cherangi --help
 
 ## Thanks to
 
+- [Amin](https://github.com/shariati) Author of Cherangi
 - [David Aerne](https://github.com/meodai/color-names) for the awesome list of color names.
 - [EasyRGB.com](http://www.easyrgb.com/en/math.php) for providing the formulas
 - [Zachary Schuessler](https://github.com/zschuessler) for the helpful blog about [Delta](http://zschuessler.github.io/DeltaE/learn/#toc-defining-delta-e)
