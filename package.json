@@ -12,6 +12,9 @@
     "cli-app",
     "colorname"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/distributedvc/cherangi",
   "author": "Amin Shariati",
   "repository": "distributedvc/cherangi",
