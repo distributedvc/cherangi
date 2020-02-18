@@ -2,7 +2,7 @@
 
 > Fork from [shariati/cherangi](https://github.com/shariati/cherangi), using dependabot to automatically update the `color-name-list` package.
 
-[![npm version](https://badge.fury.io/js/cherangi.svg)](https://badge.fury.io/js/@distributed/cherangi)
+[![npm version](https://badge.fury.io/js/%40distributed%2Fcherangi.svg)](https://badge.fury.io/js/@distributed/cherangi)
 
 A small javascript library that helps you find the name of a color (Over 18K 🎨 color names).
 
