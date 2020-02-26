@@ -42,7 +42,7 @@
     "standard-version": "^7.1.0"
   },
   "dependencies": {
-    "color-name-list": "5.2.0",
+    "color-name-list": "5.3.0",
     "taketalk": "^1.0.0"
   }
 }
