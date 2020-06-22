@@ -15,10 +15,11 @@ Cherangi (Che Rangi?) is a Farsi (Persian) sentence which means "What color?"
 ## Install
 
 ```bash
-
+# Using npm
 $ npm install @distributed/cherangi --save
 
-+ @distributed/cherangicherangi@VERSION
+# Using yarn
+yarn add @distributed/cherangi
 ```
 
 ## Usage
