@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.10](https://github.com/distributedvc/cherangi/compare/v1.1.9...v1.1.10) (2020-08-02)
+
+
+### Bug Fixes
+
+* update tests ([e8a035d](https://github.com/distributedvc/cherangi/commit/e8a035d4b857bcedb7bd54c14688b4f62fd47982))
+
 ### [1.1.9](https://github.com/distributedvc/cherangi/compare/v1.1.8...v1.1.9) (2020-07-16)
 
 ### [1.1.8](https://github.com/distributedvc/cherangi/compare/v1.1.7...v1.1.8) (2020-07-10)
