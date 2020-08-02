@@ -14,9 +14,9 @@ describe('cherangi', () => {
     assert.strict.equal('Hickory Cliff', expected)
     done()
   })
-  it('should return Meadow Violet', done => {
+  it('should return Lilac Violet', done => {
     const expected = cherangi('#72497D').name
-    assert.strict.equal('Meadow Violet', expected)
+    assert.strict.equal('Lilac Violet', expected)
     done()
   })
   it('should return Black on invalid entry', done => {
