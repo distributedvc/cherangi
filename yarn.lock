@@ -378,10 +378,10 @@ color-convert@^2.0.1:
   dependencies:
     color-name "~1.1.4"
 
-color-name-list@7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/color-name-list/-/color-name-list-7.5.0.tgz#f5ceeeddafafe64f2e4766311fcab18d1e979a2c"
-  integrity sha512-u9Lue+WMBJekyDFcB98qKS9BtJN2TiW2KWt14RCy1MfJlmuugADIA0vJ7oMTUF2meNsmrBv+dI8xv5H2dS7k6w==
+color-name-list@7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/color-name-list/-/color-name-list-7.6.0.tgz#e1e99d5d0cbb4bb63ba15f0c3ccfb13eda82e927"
+  integrity sha512-YXYpVl+DPnnfDRQ80fh4aYf5WdRhzmWgHwp1Vje635YjxHEFhMWjNPC50KS/o6mUGF3XQgKUAmbcLLvrPfI36Q==
 
 color-name@1.1.3:
   version "1.1.3"
