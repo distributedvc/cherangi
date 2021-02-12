@@ -4,7 +4,7 @@ function stringToHex (hex) {
   // Convert to string and make sure input color is in Uppercase
   hex = (hex || '000000').toString().toUpperCase()
   // Check if the hex code starts with #, If not then prepend a # to the code.
-  hex = (hex.substring(0, 1) === '#') ? hex : `#${hex}`
+  hex = hex.substring(0, 1) === '#' ? hex : `#${hex}`
   // Check if the input code is a valid hex, if not return black #000
   const isHex = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(hex)
   hex = isHex ? hex : '#000000'
@@ -21,11 +21,13 @@ function hexToRGB (hex) {
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
 
-  return result ? {
-    R: parseInt(result[1], 16),
-    G: parseInt(result[2], 16),
-    B: parseInt(result[3], 16)
-  } : {}
+  return result
+    ? {
+        R: parseInt(result[1], 16),
+        G: parseInt(result[2], 16),
+        B: parseInt(result[3], 16)
+      }
+    : {}
 }
 
 /*
@@ -35,13 +37,22 @@ function hexToRGB (hex) {
 */
 
 function rgbToXYZ (RGB) {
-  const RED = ((RGB.R / 255) > 0.04045) ? Math.pow((((RGB.R / 255) + 0.055) / 1.055), 2.4) * 100 : ((RGB.R / 255) / 12.92) * 100
-  const GREEN = ((RGB.G / 255) > 0.04045) ? Math.pow((((RGB.G / 255) + 0.055) / 1.055), 2.4) * 100 : ((RGB.G / 255) / 12.92) * 100
-  const BLUE = ((RGB.B / 255) > 0.04045) ? Math.pow((((RGB.B / 255) + 0.055) / 1.055), 2.4) * 100 : ((RGB.B / 255) / 12.92) * 100
+  const RED =
+    RGB.R / 255 > 0.04045
+      ? Math.pow((RGB.R / 255 + 0.055) / 1.055, 2.4) * 100
+      : (RGB.R / 255 / 12.92) * 100
+  const GREEN =
+    RGB.G / 255 > 0.04045
+      ? Math.pow((RGB.G / 255 + 0.055) / 1.055, 2.4) * 100
+      : (RGB.G / 255 / 12.92) * 100
+  const BLUE =
+    RGB.B / 255 > 0.04045
+      ? Math.pow((RGB.B / 255 + 0.055) / 1.055, 2.4) * 100
+      : (RGB.B / 255 / 12.92) * 100
 
-  const Xv = (RED * 0.4124) + (GREEN * 0.3576) + (BLUE * 0.1805)
-  const Yv = (RED * 0.2126) + (GREEN * 0.7152) + (BLUE * 0.0722)
-  const Zv = (RED * 0.0193) + (GREEN * 0.1192) + (BLUE * 0.9505)
+  const Xv = RED * 0.4124 + GREEN * 0.3576 + BLUE * 0.1805
+  const Yv = RED * 0.2126 + GREEN * 0.7152 + BLUE * 0.0722
+  const Zv = RED * 0.0193 + GREEN * 0.1192 + BLUE * 0.9505
 
   return {
     X: Xv,
@@ -60,14 +71,23 @@ function rgbToXYZ (RGB) {
 
 function xyzToCIELab (XYZ) {
   const REFERENCE_X = 95.047
-  const REFERENCE_Y = 100.000
+  const REFERENCE_Y = 100.0
   const REFERENCE_Z = 108.883
 
-  const X = ((XYZ.X / REFERENCE_X) > 0.008856) ? Math.pow((XYZ.X / REFERENCE_X), (1 / 3)) : ((7.787 * (XYZ.X / REFERENCE_X)) + (16 / 116))
-  const Y = ((XYZ.Y / REFERENCE_Y) > 0.008856) ? Math.pow((XYZ.Y / REFERENCE_Y), (1 / 3)) : ((7.787 * (XYZ.Y / REFERENCE_Y)) + (16 / 116))
-  const Z = ((XYZ.Z / REFERENCE_Z) > 0.008856) ? Math.pow((XYZ.Z / REFERENCE_Z), (1 / 3)) : ((7.787 * (XYZ.Z / REFERENCE_Z)) + (16 / 116))
+  const X =
+    XYZ.X / REFERENCE_X > 0.008856
+      ? Math.pow(XYZ.X / REFERENCE_X, 1 / 3)
+      : 7.787 * (XYZ.X / REFERENCE_X) + 16 / 116
+  const Y =
+    XYZ.Y / REFERENCE_Y > 0.008856
+      ? Math.pow(XYZ.Y / REFERENCE_Y, 1 / 3)
+      : 7.787 * (XYZ.Y / REFERENCE_Y) + 16 / 116
+  const Z =
+    XYZ.Z / REFERENCE_Z > 0.008856
+      ? Math.pow(XYZ.Z / REFERENCE_Z, 1 / 3)
+      : 7.787 * (XYZ.Z / REFERENCE_Z) + 16 / 116
 
-  const CIEL = (116 * Y) - 16
+  const CIEL = 116 * Y - 16
   const CIEA = 500 * (X - Y)
   const CIEB = 200 * (Y - Z)
 
@@ -92,7 +112,11 @@ function rgbToCIELab (RGB) {
 */
 
 function deltaE1994 (CIELab1, CIELab2) {
-  const DeltaE94 = Math.sqrt(Math.pow((CIELab1.L - CIELab2.L), 2) + Math.pow((CIELab1.a - CIELab2.a), 2) + Math.pow((CIELab1.b - CIELab2.b), 2))
+  const DeltaE94 = Math.sqrt(
+    Math.pow(CIELab1.L - CIELab2.L, 2) +
+      Math.pow(CIELab1.a - CIELab2.a, 2) +
+      Math.pow(CIELab1.b - CIELab2.b, 2)
+  )
   return DeltaE94
 }
 
@@ -158,7 +182,7 @@ module.exports = function (hexcolor) {
   const rgbColor = hexToRGB(hexcolor)
   const cieLabColor = rgbToCIELab(rgbColor)
   const matchedColor = []
-  colors.forEach(element => {
+  colors.forEach((element) => {
     const hexValue = stringToHex(element.hex)
     const rgbValue = hexToRGB(hexValue)
     const cieLabValue = rgbToCIELab(rgbValue)
@@ -168,6 +192,8 @@ module.exports = function (hexcolor) {
     }
   })
 
-  const matched = matchedColor.reduce((prevColor, currentColor) => (prevColor.delta < currentColor.delta) ? prevColor : currentColor)
+  const matched = matchedColor.reduce((prevColor, currentColor) =>
+    prevColor.delta < currentColor.delta ? prevColor : currentColor
+  )
   return matched
 }
